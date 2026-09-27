@@ -8,534 +8,561 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Nayab Clothing Store - E-Commerce Website</title>
-
+<title>NAYAB | Fashion Store</title>
 
 <style>
 
-/* =========================
-   GENERAL
-========================= */
-
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #fff5f7;
-    color: #333;
+html{
+    scroll-behavior:smooth;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-    background-color: #8B1E3F;
-    color: white;
-    padding: 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff7f9;
+    color:#333;
 }
 
-.logo {
-    font-size: 32px;
-    font-weight: bold;
+/* HEADER */
+
+.header{
+    background:#8B1E3F;
+    color:white;
+    padding:16px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.tagline {
-    font-size: 15px;
+.logo{
+    font-size:32px;
+    font-weight:bold;
 }
 
-.nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 16px;
+.tagline{
+    font-size:13px;
+    opacity:.9;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    background-color: #F8DDE5;
-    text-align: center;
-    padding: 70px 20px;
+.nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
 }
 
-.hero h1 {
-    color: #8B1E3F;
-    font-size: 42px;
+.nav a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
 }
 
-.hero p {
-    font-size: 20px;
+.nav a:hover{
+    text-decoration:underline;
+}
+
+.cart-link{
+    font-weight:bold;
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* HERO */
 
-.button {
-    background-color: #8B1E3F;
-    color: white;
+.hero{
+    min-height:520px;
+    padding:90px 8%;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(255,247,249,.96),
+        rgba(255,247,249,.65)
+    ),
+    url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=85");
 
-    border: none;
-
-    padding: 12px 25px;
-
-    font-size: 16px;
-
-    cursor: pointer;
-
-    border-radius: 5px;
+    background-size:cover;
+    background-position:center;
 }
 
-.button:hover {
-    background-color: #6f1732;
+.hero-content{
+    max-width:600px;
 }
 
-
-/* =========================
-   SECTION TITLE
-========================= */
-
-.section-title {
-    text-align: center;
-    color: #8B1E3F;
-
-    margin: 40px 0 25px;
+.hero small{
+    color:#8B1E3F;
+    font-weight:bold;
+    letter-spacing:2px;
 }
 
-
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 25px;
-
-    text-align: center;
-
-    flex-wrap: wrap;
-
-    padding: 10px;
+.hero h1{
+    font-size:55px;
+    color:#8B1E3F;
+    margin:15px 0;
 }
 
-.category {
-
-    padding: 25px;
-
-    background-color: white;
-
-    border-radius: 10px;
-
-    width: 190px;
-
-    cursor: pointer;
-
-    box-shadow: 0 0 8px #ddd;
-
-    transition: 0.3s;
+.hero p{
+    font-size:20px;
+    line-height:1.6;
 }
 
-.category:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow: 0 5px 15px #ccc;
+.button{
+    background:#8B1E3F;
+    color:white;
+    border:0;
+    padding:13px 24px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
 }
 
-.category-icon {
-
-    font-size: 50px;
-
-    margin-bottom: 10px;
+.button:hover{
+    background:#68152f;
 }
 
-.category-name {
-
-    color: #8B1E3F;
-
-    font-size: 18px;
-
-    font-weight: bold;
+.outline-button{
+    background:white;
+    color:#8B1E3F;
+    border:1px solid #8B1E3F;
+    padding:12px 22px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
 
-/* =========================
-   CATEGORY MESSAGE
-========================= */
+/* FEATURE STRIP */
 
-.category-message {
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    background:white;
+    padding:22px 5%;
+    gap:20px;
+    box-shadow:0 2px 10px #ddd;
+}
 
-    text-align: center;
+.feature{
+    text-align:center;
+}
 
-    color: #8B1E3F;
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    margin: 25px;
+.feature strong{
+    color:#8B1E3F;
 }
 
 
-/* =========================
-   PRODUCTS
-========================= */
+/* SECTION */
 
-.products-container {
-
-    width: 92%;
-
-    margin: auto;
+.section{
+    padding:50px 5%;
 }
 
-.product-grid {
-
-    display: grid;
-
-    grid-template-columns:
-    repeat(4, 1fr);
-
-    gap: 20px;
+.section-title{
+    text-align:center;
+    color:#8B1E3F;
+    margin-bottom:10px;
 }
 
-.product-card {
-
-    background-color: white;
-
-    padding: 20px;
-
-    text-align: center;
-
-    border-radius: 10px;
-
-    box-shadow: 0 0 8px #ddd;
-}
-
-.product-icon {
-
-    font-size: 60px;
-}
-
-.product-card h3 {
-
-    color: #8B1E3F;
-}
-
-.product-price {
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    margin: 10px;
-}
-
-.size-select {
-
-    width: 100%;
-
-    padding: 10px;
-
-    margin: 8px 0;
-
-    border: 1px solid #ccc;
-
-    border-radius: 5px;
+.section-subtitle{
+    text-align:center;
+    color:#777;
+    margin-bottom:30px;
 }
 
 
-/* =========================
-   CART
-========================= */
+/* SEARCH */
 
-.cart-box {
-
-    width: 92%;
-
-    margin: 50px auto;
-
-    background-color: white;
-
-    padding: 25px;
-
-    border-radius: 10px;
-
-    box-shadow: 0 0 10px #ddd;
+.search-area{
+    width:90%;
+    max-width:700px;
+    margin:0 auto 30px;
+    display:flex;
 }
 
-.cart-table {
+.search-area input{
+    flex:1;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:7px 0 0 7px;
+    font-size:16px;
+}
 
-    width: 100%;
+.search-area button{
+    border-radius:0 7px 7px 0;
+}
 
-    border-collapse: collapse;
+
+/* CATEGORIES */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.category{
+    background:white;
+    padding:28px 15px;
+    text-align:center;
+    border-radius:12px;
+    cursor:pointer;
+    box-shadow:0 3px 12px #ddd;
+    transition:.3s;
+}
+
+.category:hover{
+    transform:translateY(-6px);
+}
+
+.category-icon{
+    font-size:45px;
+}
+
+.category h3{
+    color:#8B1E3F;
+}
+
+
+/* PRODUCTS */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.product-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px #ddd;
+    position:relative;
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+.product-image{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:16px;
+}
+
+.product-name{
+    font-size:17px;
+    font-weight:bold;
+    margin:5px 0;
+}
+
+.category-label{
+    color:#777;
+    font-size:13px;
+}
+
+.rating{
+    color:#e59a00;
+    margin:8px 0;
+}
+
+.rating span{
+    color:#777;
+    font-size:13px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    color:#8B1E3F;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:#999;
+    font-size:14px;
+    margin-left:5px;
+}
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#8B1E3F;
+    color:white;
+    padding:6px 10px;
+    border-radius:4px;
+    font-size:12px;
+}
+
+.wishlist{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:0;
+    background:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.size{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.product-info .button{
+    width:100%;
+}
+
+
+/* OFFER */
+
+.offer{
+    margin:20px 5%;
+    padding:45px;
+    border-radius:12px;
+    background:#8B1E3F;
+    color:white;
+    text-align:center;
+}
+
+.offer h2{
+    font-size:32px;
+}
+
+
+/* CART */
+
+.cart-box{
+    background:white;
+    width:90%;
+    margin:auto;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 12px #ddd;
+}
+
+.cart-table{
+    width:100%;
+    border-collapse:collapse;
 }
 
 .cart-table th,
-.cart-table td {
-
-    border: 1px solid #ddd;
-
-    padding: 12px;
-
-    text-align: center;
+.cart-table td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
 }
 
-.cart-table th {
-
-    background-color: #F8DDE5;
-
-    color: #8B1E3F;
+.cart-table th{
+    color:#8B1E3F;
+    background:#f8dde5;
 }
 
-.quantity-input {
-
-    width: 70px;
-
-    padding: 8px;
+.quantity{
+    width:60px;
+    padding:7px;
 }
 
-.remove-button {
-
-    background-color: #c62828;
-
-    color: white;
-
-    border: none;
-
-    padding: 8px 12px;
-
-    border-radius: 4px;
-
-    cursor: pointer;
+.remove{
+    border:0;
+    background:#c62828;
+    color:white;
+    padding:7px 10px;
+    border-radius:4px;
+    cursor:pointer;
 }
 
-.cart-total {
-
-    text-align: right;
-
-    color: #8B1E3F;
-
-    font-size: 24px;
-
-    font-weight: bold;
-
-    margin-top: 20px;
+.summary{
+    max-width:450px;
+    margin:25px 0 0 auto;
 }
 
-.empty-cart {
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+}
 
-    text-align: center;
-
-    padding: 20px;
-
-    color: #777;
+.final-total{
+    border-top:2px solid #8B1E3F;
+    padding-top:12px;
+    font-size:22px;
+    font-weight:bold;
+    color:#8B1E3F;
 }
 
 
-/* =========================
-   OFFER
-========================= */
+/* CHECKOUT */
 
-.offer {
+.checkout{
+    background:white;
+    width:90%;
+    max-width:850px;
+    margin:auto;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 3px 12px #ddd;
+}
 
-    width: 90%;
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
 
-    margin: 50px auto;
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
 
-    background-color: #8B1E3F;
+.form-group.full{
+    grid-column:1/-1;
+}
 
-    color: white;
+.form-group input,
+.form-group textarea,
+.form-group select{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
 
-    text-align: center;
+.payment-box{
+    margin-top:20px;
+}
 
-    padding: 30px;
+.payment-option{
+    display:block;
+    background:#fff7f9;
+    padding:12px;
+    margin:8px 0;
+    border-radius:5px;
 }
 
 
-/* =========================
-   ORDER FORM
-========================= */
+/* SUCCESS */
 
-.order-box {
-
-    width: 70%;
-
-    margin: auto;
-
-    background-color: white;
-
-    padding: 30px;
-
-    box-shadow: 0 0 10px #ddd;
-
-    border-radius: 10px;
-}
-
-.order-box table {
-
-    width: 100%;
-}
-
-.order-box td {
-
-    padding: 10px;
-}
-
-input,
-textarea {
-
-    width: 100%;
-
-    padding: 10px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 4px;
+.success{
+    display:none;
+    background:#e8f5e9;
+    border:1px solid #4caf50;
+    color:#2e7d32;
+    padding:25px;
+    margin-top:25px;
+    border-radius:8px;
 }
 
 
-/* =========================
-   SUCCESS MESSAGE
-========================= */
+/* ABOUT */
 
-.success {
-
-    display: none;
-
-    margin-top: 25px;
-
-    padding: 20px;
-
-    background-color: #e8f5e9;
-
-    border: 1px solid #4caf50;
-
-    color: #2e7d32;
-
-    text-align: center;
-
-    border-radius: 5px;
+.about{
+    background:#f8dde5;
+    text-align:center;
+    padding:55px 10%;
+    line-height:1.7;
 }
 
 
-/* =========================
-   ABOUT
-========================= */
+/* FOOTER */
 
-.about {
-
-    background-color: #F8DDE5;
-
-    text-align: center;
-
-    padding: 40px;
-
-    margin-top: 60px;
+.footer{
+    background:#8B1E3F;
+    color:white;
+    text-align:center;
+    padding:35px;
 }
 
 
-/* =========================
-   CONTACT
-========================= */
+/* MOBILE */
 
-.contact {
+@media(max-width:900px){
 
-    text-align: center;
-
-    padding: 30px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-
-    background-color: #8B1E3F;
-
-    color: white;
-
-    text-align: center;
-
-    padding: 25px;
-
-    margin-top: 30px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .product-grid {
-
-        grid-template-columns:
-        repeat(2, 1fr);
-    }
-}
-
-
-@media (max-width: 700px) {
-
-    .header {
-
-        flex-direction: column;
-
-        gap: 15px;
-
-        text-align: center;
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .nav {
-
-        line-height: 2;
+    .categories{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .categories {
-
-        flex-direction: column;
-
-        align-items: center;
+    .features{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .product-grid {
+}
 
-        grid-template-columns: 1fr;
+@media(max-width:650px){
+
+    .header{
+        flex-direction:column;
+        gap:12px;
     }
 
-    .order-box {
-
-        width: 90%;
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
     }
 
-    .cart-box {
-
-        overflow-x: auto;
+    .hero{
+        min-height:480px;
+        padding:60px 6%;
     }
 
-    .hero h1 {
+    .hero h1{
+        font-size:38px;
+    }
 
-        font-size: 30px;
+    .hero p{
+        font-size:17px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .categories{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .cart-box{
+        overflow-x:auto;
+    }
+
+    .cart-table{
+        min-width:700px;
     }
 
 }
@@ -548,517 +575,493 @@ textarea {
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
-<div class="header">
+<header class="header">
 
-    <div>
+<div>
 
-        <div class="logo">
-            NAYAB
-        </div>
+<div class="logo">
+NAYAB
+</div>
 
-        <div class="tagline">
-            Clothing Store
-        </div>
-
-    </div>
-
-
-    <div class="nav">
-
-        <a href="#home">
-            Home
-        </a>
-
-        <a href="#products">
-            Products
-        </a>
-
-        <a href="#categories">
-            Categories
-        </a>
-
-        <a href="#cart">
-            Cart 🛒
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#contact">
-            Contact
-        </a>
-
-    </div>
+<div class="tagline">
+Fashion • Elegance • Comfort
+</div>
 
 </div>
 
 
+<nav class="nav">
 
-<!-- =========================
-     HOME
-========================= -->
+<a href="#home">Home</a>
 
-<section id="home"
-         class="hero">
+<a href="#categories">Categories</a>
 
-    <h1>
-        WELCOME TO NAYAB
-    </h1>
+<a href="#products">Shop</a>
 
-    <p>
-        Discover Fashion.
-        Discover Yourself.
-    </p>
+<a href="#cart">
+🛒 Cart (<span id="cartCount">0</span>)
+</a>
 
-    <p>
-        Trendy • Elegant • Comfortable
-    </p>
+<a href="#checkout">Checkout</a>
 
-    <br>
+</nav>
 
-    <a href="#categories">
+</header>
 
-        <button class="button">
 
-            SHOP NOW
 
-        </button>
+<!-- HERO -->
 
-    </a>
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+<small>
+NAYAB NEW COLLECTION
+</small>
+
+<h1>
+Style That Feels Like You
+</h1>
+
+<p>
+Discover elegant sarees, trendy western wear,
+beautiful kurtis and ethnic outfits —
+all in one place.
+</p>
+
+<a href="#products">
+
+<button class="button">
+SHOP NOW
+</button>
+
+</a>
+
+</div>
 
 </section>
 
 
 
-<!-- =========================
-     CATEGORIES
-========================= -->
+<!-- FEATURES -->
 
-<h1 id="categories"
-    class="section-title">
+<section class="features">
 
-    SHOP BY CATEGORY
+<div class="feature">
+<strong>🚚 Free Delivery</strong>
+<br>
+Orders above ₹1,999
+</div>
 
-</h1>
+<div class="feature">
+<strong>↩ Easy Returns</strong>
+<br>
+7-day return policy
+</div>
+
+<div class="feature">
+<strong>🔒 Secure Payment</strong>
+<br>
+Safe checkout
+</div>
+
+<div class="feature">
+<strong>💬 Customer Support</strong>
+<br>
+We're here to help
+</div>
+
+</section>
+
+
+
+<!-- CATEGORIES -->
+
+<section id="categories" class="section">
+
+<h2 class="section-title">
+SHOP BY CATEGORY
+</h2>
+
+<p class="section-subtitle">
+Find your perfect style
+</p>
 
 
 <div class="categories">
 
 
-    <!-- WESTERN -->
+<div class="category"
+onclick="showCategory('Western Wear')">
 
-    <div class="category"
-         onclick="showCategory('Western Wear')">
+<div class="category-icon">👗</div>
 
-        <div class="category-icon">
-            👗
-        </div>
+<h3>Western Wear</h3>
 
-        <div class="category-name">
-            Western Wear
-        </div>
-
-    </div>
-
-
-    <!-- SAREES -->
-
-    <div class="category"
-         onclick="showCategory('Sarees')">
-
-        <div class="category-icon">
-            🥻
-        </div>
-
-        <div class="category-name">
-            Sarees
-        </div>
-
-    </div>
-
-
-    <!-- KURTIS -->
-
-    <div class="category"
-         onclick="showCategory('Kurtis')">
-
-        <div class="category-icon">
-            👚
-        </div>
-
-        <div class="category-name">
-            Kurtis
-        </div>
-
-    </div>
-
-
-    <!-- ETHNIC -->
-
-    <div class="category"
-         onclick="showCategory('Ethnic Wear')">
-
-        <div class="category-icon">
-            ✨
-        </div>
-
-        <div class="category-name">
-            Ethnic Wear
-        </div>
-
-    </div>
-
+<p>Trendy everyday styles</p>
 
 </div>
 
 
+<div class="category"
+onclick="showCategory('Sarees')">
 
-<!-- CATEGORY MESSAGE -->
+<div class="category-icon">🥻</div>
 
-<div id="categoryMessage"
-     class="category-message">
+<h3>Sarees</h3>
 
-    Select a category to see products
-
-</div>
-
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
-<h1 id="products"
-    class="section-title">
-
-    OUR COLLECTION
-
-</h1>
-
-
-<div class="products-container">
-
-    <div id="productGrid"
-         class="product-grid">
-
-    </div>
+<p>Elegant traditional styles</p>
 
 </div>
 
 
+<div class="category"
+onclick="showCategory('Kurtis')">
 
-<!-- =========================
-     SPECIAL OFFER
-========================= -->
+<div class="category-icon">👚</div>
+
+<h3>Kurtis</h3>
+
+<p>Comfortable & stylish</p>
+
+</div>
+
+
+<div class="category"
+onclick="showCategory('Ethnic Wear')">
+
+<div class="category-icon">✨</div>
+
+<h3>Ethnic Wear</h3>
+
+<p>Festive & beautiful</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- PRODUCTS -->
+
+<section id="products" class="section">
+
+<h2 class="section-title">
+OUR COLLECTION
+</h2>
+
+<p id="categoryText"
+class="section-subtitle">
+
+Explore our latest collection
+
+</p>
+
+
+<!-- SEARCH -->
+
+<div class="search-area">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search dresses, sarees, kurtis..."
+onkeyup="searchProducts()">
+
+<button class="button"
+onclick="searchProducts()">
+
+🔍 Search
+
+</button>
+
+</div>
+
+
+<div id="productGrid"
+class="product-grid">
+
+</div>
+
+</section>
+
+
+
+<!-- OFFER -->
 
 <div class="offer">
 
-    <h2>
-        ✨ SPECIAL OFFER ✨
-    </h2>
+<h2>
+✨ SPECIAL OFFER ✨
+</h2>
 
-    <p>
-        Get amazing fashion
-        at affordable prices!
-    </p>
+<p>
+Get ₹200 OFF on orders above ₹2,999
+</p>
 
-    <p>
-        Free delivery on orders
-        above ₹1,999
-    </p>
+<p>
+Free delivery on orders above ₹1,999
+</p>
 
 </div>
 
 
 
-<!-- =========================
-     CART
-========================= -->
+<!-- CART -->
 
-<h1 id="cart"
-    class="section-title">
+<section id="cart" class="section">
 
-    YOUR SHOPPING CART 🛒
-
-</h1>
+<h2 class="section-title">
+YOUR CART 🛒
+</h2>
 
 
 <div class="cart-box">
 
-    <div id="cartContent">
+<div id="cartContent">
 
-        <div class="empty-cart">
-
-            Your cart is empty.
-
-        </div>
-
-    </div>
+<p style="text-align:center">
+Your cart is empty.
+</p>
 
 </div>
 
+</div>
+
+</section>
 
 
-<!-- =========================
-     ORDER
-========================= -->
 
-<h1 id="order"
-    class="section-title">
+<!-- CHECKOUT -->
 
-    PLACE YOUR ORDER
+<section id="checkout" class="section">
 
-</h1>
+<h2 class="section-title">
+CHECKOUT
+</h2>
+
+<p class="section-subtitle">
+Complete your order
+</p>
 
 
-<div class="order-box">
-
+<div class="checkout">
 
 <form onsubmit="placeOrder(event)">
 
 
-<table>
+<div class="form-grid">
 
 
-<tr>
+<div class="form-group">
 
-<td>
-<b>Your Name:</b>
-</td>
-
-<td>
+<label>
+<b>Full Name</b>
+</label>
 
 <input
-    type="text"
-    id="name"
-    placeholder="Enter your name"
-    required>
+id="name"
+type="text"
+placeholder="Enter your name"
+required>
 
-</td>
-
-</tr>
+</div>
 
 
+<div class="form-group">
 
-<tr>
-
-<td>
-<b>Email:</b>
-</td>
-
-<td>
+<label>
+<b>Phone Number</b>
+</label>
 
 <input
-    type="email"
-    id="email"
-    placeholder="Enter your email"
-    required>
+id="phone"
+type="tel"
+placeholder="Enter phone number"
+required>
 
-</td>
-
-</tr>
+</div>
 
 
+<div class="form-group">
 
-<tr>
-
-<td>
-<b>Phone:</b>
-</td>
-
-<td>
+<label>
+<b>Email</b>
+</label>
 
 <input
-    type="tel"
-    id="phone"
-    placeholder="Enter phone number"
-    required>
+id="email"
+type="email"
+placeholder="Enter email"
+required>
 
-</td>
-
-</tr>
+</div>
 
 
+<div class="form-group">
 
-<tr>
+<label>
+<b>PIN Code</b>
+</label>
 
-<td>
-<b>Delivery Address:</b>
-</td>
+<input
+id="pincode"
+type="text"
+placeholder="6-digit PIN code"
+required>
 
-<td>
+</div>
+
+
+<div class="form-group full">
+
+<label>
+<b>Delivery Address</b>
+</label>
 
 <textarea
-    id="address"
-    rows="5"
-    placeholder="Enter your complete address"
-    required></textarea>
+id="address"
+rows="4"
+placeholder="House/Flat, Street, City, State"
+required></textarea>
 
-</td>
-
-</tr>
+</div>
 
 
+<div class="form-group full">
 
-<tr>
+<label>
+<b>Payment Method</b>
+</label>
 
-<td colspan="2"
-    align="center">
+
+<select id="payment">
+
+<option value="Cash on Delivery">
+Cash on Delivery
+</option>
+
+<option value="UPI">
+UPI
+</option>
+
+<option value="Credit / Debit Card">
+Credit / Debit Card
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+<div class="payment-box">
+
+<p>
+<b>Available Payment Methods</b>
+</p>
+
+<div class="payment-option">
+💵 Cash on Delivery
+</div>
+
+<div class="payment-option">
+📱 UPI
+</div>
+
+<div class="payment-option">
+💳 Credit / Debit Card
+</div>
+
+</div>
+
+
+<br>
+
 
 <button
-    type="submit"
-    class="button">
+class="button"
+type="submit">
 
-    PLACE ORDER
+PLACE ORDER
 
 </button>
-
-</td>
-
-</tr>
-
-
-</table>
 
 
 </form>
 
 
+<!-- SUCCESS -->
 
-<!-- SUCCESS MESSAGE -->
+<div id="success"
+class="success">
 
-<div id="successMessage"
-     class="success">
+<h2>
+🎉 Order Placed Successfully!
+</h2>
 
-    <h2>
-        🎉 Order Placed Successfully!
-    </h2>
-
-    <p id="orderDetails"></p>
-
-    <p>
-
-        Thank you for shopping with
-
-        <b>
-            NAYAB Clothing Store
-        </b>
-
-        ❤️
-
-    </p>
+<div id="orderDetails"></div>
 
 </div>
 
 
 </div>
 
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<div id="about"
-     class="about">
-
-    <h1 class="section-title">
-        ABOUT NAYAB
-    </h1>
-
-    <p>
-
-        Nayab Clothing Store is
-        an online fashion destination
-        that offers stylish and
-        comfortable clothing for everyone.
-
-    </p>
-
-    <p>
-
-        Our collection combines
-        modern fashion with traditional
-        elegance and offers quality
-        clothing at affordable prices.
-
-    </p>
-
-</div>
+</section>
 
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- ABOUT -->
 
-<div id="contact"
-     class="contact">
+<section id="about"
+class="about">
 
-    <h1 class="section-title">
+<h2 class="section-title">
+ABOUT NAYAB
+</h2>
 
-        CONTACT US
+<p>
+NAYAB is a fashion destination created for
+modern women who love elegant, comfortable
+and affordable clothing.
+</p>
 
-    </h1>
+<p>
+From everyday kurtis to beautiful sarees,
+western outfits and ethnic wear,
+NAYAB brings different styles together.
+</p>
 
-
-    <p>
-
-        📍 <b>Address:</b>
-
-        Ghaziabad, Uttar Pradesh
-
-    </p>
-
-
-    <p>
-
-        📞 <b>Phone:</b>
-
-        +91 98765 43210
-
-    </p>
-
-
-    <p>
-
-        ✉️ <b>Email:</b>
-
-        nayabclothing@example.com
-
-    </p>
-
-</div>
+</section>
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
-<div class="footer">
+<footer class="footer">
 
-    <b>
-        NAYAB CLOTHING STORE
-    </b>
+<b>
+NAYAB CLOTHING STORE
+</b>
 
-    <br>
-    <br>
+<br><br>
 
-    Your Style, Your Identity.
+Your Style, Your Identity.
 
-    <br>
-    <br>
+<br><br>
 
-    © 2026 Nayab Clothing Store.
-    All Rights Reserved.
+© 2026 NAYAB Clothing Store.
+All Rights Reserved.
 
-</div>
+</footer>
 
 
 
@@ -1066,875 +1069,998 @@ textarea {
 
 
 /* =========================
-   PRODUCT DATA
+   PRODUCTS
 ========================= */
-
 
 const products = [
 
 
-/* -------------------------
-   WESTERN WEAR
-------------------------- */
+/* WESTERN */
 
 {
-    id: 1,
-    name: "Elegant Floral Dress",
-    category: "Western Wear",
-    price: 1499,
-    icon: "👗"
+id:1,
+name:"Elegant Floral Dress",
+category:"Western Wear",
+price:1499,
+oldPrice:1899,
+rating:4.7,
+reviews:128,
+badge:"BESTSELLER",
+image:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 2,
-    name: "Casual Fashion Top",
-    category: "Western Wear",
-    price: 699,
-    icon: "👕"
+id:2,
+name:"Casual Fashion Top",
+category:"Western Wear",
+price:699,
+oldPrice:899,
+rating:4.5,
+reviews:94,
+badge:"SALE",
+image:"https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 3,
-    name: "Party Wear Dress",
-    category: "Western Wear",
-    price: 1799,
-    icon: "💃"
+id:3,
+name:"Party Wear Dress",
+category:"Western Wear",
+price:1799,
+oldPrice:2299,
+rating:4.8,
+reviews:156,
+badge:"TRENDING",
+image:"https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 4,
-    name: "Denim Jacket",
-    category: "Western Wear",
-    price: 1299,
-    icon: "🧥"
+id:4,
+name:"Denim Jacket",
+category:"Western Wear",
+price:1299,
+oldPrice:1599,
+rating:4.4,
+reviews:73,
+badge:"NEW",
+image:"https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 5,
-    name: "Stylish Jumpsuit",
-    category: "Western Wear",
-    price: 1599,
-    icon: "👗"
+id:5,
+name:"Stylish Jumpsuit",
+category:"Western Wear",
+price:1599,
+oldPrice:1999,
+rating:4.6,
+reviews:81,
+badge:"NEW",
+image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80"
 },
 
 
-
-/* -------------------------
-   SAREES
-------------------------- */
+/* SAREES */
 
 {
-    id: 6,
-    name: "Designer Saree",
-    category: "Sarees",
-    price: 1999,
-    icon: "🥻"
+id:6,
+name:"Designer Saree",
+category:"Sarees",
+price:1999,
+oldPrice:2499,
+rating:4.9,
+reviews:210,
+badge:"BESTSELLER",
+image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 7,
-    name: "Silk Saree",
-    category: "Sarees",
-    price: 2499,
-    icon: "🥻"
+id:7,
+name:"Elegant Silk Saree",
+category:"Sarees",
+price:2499,
+oldPrice:2999,
+rating:4.8,
+reviews:145,
+badge:"PREMIUM",
+image:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 8,
-    name: "Printed Saree",
-    category: "Sarees",
-    price: 1299,
-    icon: "🥻"
+id:8,
+name:"Printed Saree",
+category:"Sarees",
+price:1299,
+oldPrice:1699,
+rating:4.5,
+reviews:89,
+badge:"SALE",
+image:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 9,
-    name: "Party Wear Saree",
-    category: "Sarees",
-    price: 2299,
-    icon: "🥻"
+id:9,
+name:"Party Wear Saree",
+category:"Sarees",
+price:2299,
+oldPrice:2799,
+rating:4.7,
+reviews:112,
+badge:"TRENDING",
+image:"https://images.unsplash.com/photo-1610189024946-9e1e7a7d0b9c?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 10,
-    name: "Cotton Saree",
-    category: "Sarees",
-    price: 999,
-    icon: "🥻"
+id:10,
+name:"Cotton Saree",
+category:"Sarees",
+price:999,
+oldPrice:1299,
+rating:4.4,
+reviews:76,
+badge:"VALUE",
+image:"https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=700&q=80"
 },
 
 
-
-/* -------------------------
-   KURTIS
-------------------------- */
+/* KURTIS */
 
 {
-    id: 11,
-    name: "Printed Cotton Kurti",
-    category: "Kurtis",
-    price: 899,
-    icon: "👚"
+id:11,
+name:"Printed Cotton Kurti",
+category:"Kurtis",
+price:899,
+oldPrice:1199,
+rating:4.7,
+reviews:134,
+badge:"BESTSELLER",
+image:"https://images.unsplash.com/photo-1583391733981-849840f3f9c9?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 12,
-    name: "Anarkali Kurti",
-    category: "Kurtis",
-    price: 1199,
-    icon: "👚"
+id:12,
+name:"Anarkali Kurti",
+category:"Kurtis",
+price:1199,
+oldPrice:1499,
+rating:4.6,
+reviews:97,
+badge:"NEW",
+image:"https://images.unsplash.com/photo-1610030469668-8e9f4f3e7f2a?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 13,
-    name: "Straight Kurti",
-    category: "Kurtis",
-    price: 799,
-    icon: "👚"
+id:13,
+name:"Straight Kurti",
+category:"Kurtis",
+price:799,
+oldPrice:999,
+rating:4.5,
+reviews:88,
+badge:"SALE",
+image:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 14,
-    name: "Embroidered Kurti",
-    category: "Kurtis",
-    price: 1399,
-    icon: "👚"
+id:14,
+name:"Embroidered Kurti",
+category:"Kurtis",
+price:1399,
+oldPrice:1799,
+rating:4.8,
+reviews:105,
+badge:"PREMIUM",
+image:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 15,
-    name: "Rayon Kurti",
-    category: "Kurtis",
-    price: 999,
-    icon: "👚"
+id:15,
+name:"Rayon Kurti",
+category:"Kurtis",
+price:999,
+oldPrice:1299,
+rating:4.4,
+reviews:64,
+badge:"NEW",
+image:"https://images.unsplash.com/photo-1571945153237-4929e783af4a?auto=format&fit=crop&w=700&q=80"
 },
 
 
-
-/* -------------------------
-   ETHNIC WEAR
-------------------------- */
+/* ETHNIC */
 
 {
-    id: 16,
-    name: "Traditional Ethnic Suit",
-    category: "Ethnic Wear",
-    price: 1299,
-    icon: "✨"
+id:16,
+name:"Traditional Ethnic Suit",
+category:"Ethnic Wear",
+price:1299,
+oldPrice:1699,
+rating:4.7,
+reviews:119,
+badge:"BESTSELLER",
+image:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 17,
-    name: "Festive Salwar Suit",
-    category: "Ethnic Wear",
-    price: 1799,
-    icon: "✨"
+id:17,
+name:"Festive Salwar Suit",
+category:"Ethnic Wear",
+price:1799,
+oldPrice:2299,
+rating:4.8,
+reviews:91,
+badge:"TRENDING",
+image:"https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 18,
-    name: "Embroidered Lehenga",
-    category: "Ethnic Wear",
-    price: 2999,
-    icon: "💃"
+id:18,
+name:"Embroidered Lehenga",
+category:"Ethnic Wear",
+price:2999,
+oldPrice:3999,
+rating:4.9,
+reviews:167,
+badge:"PREMIUM",
+image:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 19,
-    name: "Anarkali Suit",
-    category: "Ethnic Wear",
-    price: 1999,
-    icon: "✨"
+id:19,
+name:"Anarkali Suit",
+category:"Ethnic Wear",
+price:1999,
+oldPrice:2499,
+rating:4.6,
+reviews:84,
+badge:"NEW",
+image:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80"
 },
 
 {
-    id: 20,
-    name: "Designer Palazzo Suit",
-    category: "Ethnic Wear",
-    price: 1599,
-    icon: "✨"
+id:20,
+name:"Designer Palazzo Suit",
+category:"Ethnic Wear",
+price:1599,
+oldPrice:1999,
+rating:4.5,
+reviews:71,
+badge:"SALE",
+image:"https://images.unsplash.com/photo-1610189024946-9e1e7a7d0b9c?auto=format&fit=crop&w=700&q=80"
 }
 
 ];
 
 
-
-/* =========================
-   CART
-========================= */
-
-
-let cart = [];
-
-
-
-/* =========================
-   SHOW CATEGORY
-========================= */
-
-
-function showCategory(category) {
-
-
-    const filteredProducts =
-        products.filter(
-            product =>
-            product.category === category
-        );
-
-
-    document.getElementById(
-        "categoryMessage"
-    ).innerHTML =
-        "Showing 5 products from " +
-        category;
-
-
-    displayProducts(filteredProducts);
-
-
-    document.getElementById(
-        "products"
-    ).scrollIntoView({
-
-        behavior: "smooth"
-
-    });
-
-}
-
+let cart=[];
 
 
 /* =========================
    DISPLAY PRODUCTS
 ========================= */
 
+function displayProducts(list){
 
-function displayProducts(productList) {
+const grid=document.getElementById("productGrid");
 
-
-    const grid =
-        document.getElementById(
-            "productGrid"
-        );
+grid.innerHTML="";
 
 
-    grid.innerHTML = "";
+if(list.length===0){
 
+grid.innerHTML=
+"<p>No products found.</p>";
 
-    productList.forEach(product => {
-
-
-        const card =
-            document.createElement("div");
-
-
-        card.className =
-            "product-card";
-
-
-        card.innerHTML = `
-
-            <div class="product-icon">
-                ${product.icon}
-            </div>
-
-            <h3>
-                ${product.name}
-            </h3>
-
-            <p>
-                ${product.category}
-            </p>
-
-            <div class="product-price">
-                ₹${product.price}
-            </div>
-
-            <select
-                class="size-select"
-                id="size-${product.id}">
-
-                <option value="XS">
-                    XS
-                </option>
-
-                <option value="S">
-                    S
-                </option>
-
-                <option value="M"
-                        selected>
-                    M
-                </option>
-
-                <option value="L">
-                    L
-                </option>
-
-                <option value="XL">
-                    XL
-                </option>
-
-                <option value="XXL">
-                    XXL
-                </option>
-
-            </select>
-
-            <br>
-
-            <button
-                class="button"
-                onclick="addToCart(${product.id})">
-
-                ADD TO CART 🛒
-
-            </button>
-
-        `;
-
-
-        grid.appendChild(card);
-
-    });
+return;
 
 }
 
+
+list.forEach(product=>{
+
+const card=document.createElement("div");
+
+card.className="product-card";
+
+
+card.innerHTML=`
+
+<div class="badge">
+${product.badge}
+</div>
+
+<button
+class="wishlist"
+onclick="wishlist(this)">
+♡
+</button>
+
+<img
+class="product-image"
+src="${product.image}"
+alt="${product.name}"
+loading="lazy">
+
+<div class="product-info">
+
+<div class="category-label">
+${product.category}
+</div>
+
+<div class="product-name">
+${product.name}
+</div>
+
+<div class="rating">
+
+${"★".repeat(Math.round(product.rating))}
+
+<span>
+${product.rating} (${product.reviews} reviews)
+</span>
+
+</div>
+
+<div class="price">
+
+₹${product.price}
+
+<span class="old-price">
+₹${product.oldPrice}
+</span>
+
+</div>
+
+<select
+class="size"
+id="size-${product.id}">
+
+<option>XS</option>
+<option>S</option>
+<option selected>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+
+</select>
+
+<button
+class="button"
+onclick="addToCart(${product.id})">
+
+ADD TO CART 🛒
+
+</button>
+
+</div>
+
+`;
+
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+function showCategory(category){
+
+const list=products.filter(
+p=>p.category===category
+);
+
+document.getElementById(
+"categoryText"
+).innerText=
+"Showing 5 products from "+category;
+
+displayProducts(list);
+
+document.getElementById(
+"products"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+const search=
+document.getElementById(
+"searchInput"
+).value.toLowerCase();
+
+
+const results=products.filter(
+p=>
+p.name.toLowerCase().includes(search) ||
+p.category.toLowerCase().includes(search)
+);
+
+
+document.getElementById(
+"categoryText"
+).innerText=
+results.length+
+" product(s) found";
+
+
+displayProducts(results);
+
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function wishlist(button){
+
+if(button.innerText==="♡"){
+
+button.innerText="♥";
+
+}else{
+
+button.innerText="♡";
+
+}
+
+}
 
 
 /* =========================
    ADD TO CART
 ========================= */
 
+function addToCart(id){
 
-function addToCart(productId) {
-
-
-    const product =
-        products.find(
-            p =>
-            p.id === productId
-        );
+const product=
+products.find(
+p=>p.id===id
+);
 
 
-    const size =
-        document.getElementById(
-            "size-" + productId
-        ).value;
+const size=
+document.getElementById(
+"size-"+id
+).value;
 
 
-    /*
-       Check whether the same
-       product AND same size
-       already exists.
-    */
-
-    const existingItem =
-        cart.find(
-            item =>
-            item.id === productId &&
-            item.size === size
-        );
+const existing=
+cart.find(
+item=>
+item.id===id &&
+item.size===size
+);
 
 
-    if (existingItem) {
+if(existing){
 
-        /*
-           If it already exists,
-           increase quantity by 1.
-        */
+existing.quantity++;
 
-        existingItem.quantity++;
+}else{
 
-    }
+cart.push({
 
-    else {
+id:product.id,
 
-        /*
-           Otherwise create
-           a new cart item.
-        */
+name:product.name,
 
-        cart.push({
+category:product.category,
 
-            id: product.id,
+price:product.price,
 
-            name: product.name,
+size:size,
 
-            category: product.category,
+quantity:1
 
-            price: product.price,
-
-            size: size,
-
-            quantity: 1
-
-        });
-
-    }
-
-
-    displayCart();
-
-
-    document.getElementById(
-        "cart"
-    ).scrollIntoView({
-
-        behavior: "smooth"
-
-    });
+});
 
 }
 
+
+updateCart();
+
+document.getElementById(
+"cart"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+}
 
 
 /* =========================
-   DISPLAY CART
+   UPDATE CART
 ========================= */
 
+function updateCart(){
 
-function displayCart() {
+document.getElementById(
+"cartCount"
+).innerText=
+cart.reduce(
+(sum,item)=>
+sum+item.quantity,
+0
+);
 
 
-    const cartContent =
-        document.getElementById(
-            "cartContent"
-        );
+const box=
+document.getElementById(
+"cartContent"
+);
 
 
-    if (cart.length === 0) {
+if(cart.length===0){
 
+box.innerHTML=
+"<p style='text-align:center'>Your cart is empty.</p>";
 
-        cartContent.innerHTML = `
-
-            <div class="empty-cart">
-
-                Your cart is empty.
-
-            </div>
-
-        `;
-
-
-        return;
-
-    }
-
-
-    let html = `
-
-        <table class="cart-table">
-
-        <tr>
-
-            <th>
-                Product
-            </th>
-
-            <th>
-                Category
-            </th>
-
-            <th>
-                Size
-            </th>
-
-            <th>
-                Price
-            </th>
-
-            <th>
-                Quantity
-            </th>
-
-            <th>
-                Total
-            </th>
-
-            <th>
-                Remove
-            </th>
-
-        </tr>
-
-    `;
-
-
-    let grandTotal = 0;
-
-
-    cart.forEach(
-        (item, index) => {
-
-
-            const total =
-                item.price *
-                item.quantity;
-
-
-            grandTotal += total;
-
-
-            html += `
-
-                <tr>
-
-                    <td>
-                        <b>
-                            ${item.name}
-                        </b>
-                    </td>
-
-                    <td>
-                        ${item.category}
-                    </td>
-
-                    <td>
-                        ${item.size}
-                    </td>
-
-                    <td>
-                        ₹${item.price}
-                    </td>
-
-                    <td>
-
-                        <input
-
-                            class="quantity-input"
-
-                            type="number"
-
-                            min="1"
-
-                            value="${item.quantity}"
-
-                            onchange=
-                            "changeQuantity(
-                                ${index},
-                                this.value
-                            )"
-
-                        >
-
-                    </td>
-
-                    <td>
-                        ₹${total}
-                    </td>
-
-                    <td>
-
-                        <button
-
-                            class="remove-button"
-
-                            onclick=
-                            "removeFromCart(
-                                ${index}
-                            )">
-
-                            REMOVE
-
-                        </button>
-
-                    </td>
-
-                </tr>
-
-            `;
-
-        }
-    );
-
-
-    html += `
-
-        </table>
-
-
-        <div class="cart-total">
-
-            Grand Total:
-            ₹${grandTotal}
-
-        </div>
-
-    `;
-
-
-    cartContent.innerHTML =
-        html;
+return;
 
 }
 
+
+let html=`
+
+<table class="cart-table">
+
+<tr>
+
+<th>Product</th>
+<th>Size</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Total</th>
+<th>Remove</th>
+
+</tr>
+
+`;
+
+
+let subtotal=0;
+
+
+cart.forEach(
+(item,index)=>{
+
+const total=
+item.price*
+item.quantity;
+
+subtotal+=total;
+
+
+html+=`
+
+<tr>
+
+<td>
+<b>${item.name}</b>
+<br>
+<small>${item.category}</small>
+</td>
+
+<td>
+${item.size}
+</td>
+
+<td>
+₹${item.price}
+</td>
+
+<td>
+
+<input
+class="quantity"
+type="number"
+min="1"
+value="${item.quantity}"
+onchange="
+changeQuantity(
+${index},
+this.value
+)">
+
+</td>
+
+<td>
+₹${total}
+</td>
+
+<td>
+
+<button
+class="remove"
+onclick="
+removeItem(${index})
+">
+
+REMOVE
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+
+let delivery=
+subtotal>=1999
+?0
+:99;
+
+
+let discount=
+subtotal>=2999
+?200
+:0;
+
+
+let finalTotal=
+subtotal+
+delivery-
+discount;
+
+
+html+=`
+
+</table>
+
+
+<div class="summary">
+
+<div class="summary-row">
+
+<span>
+Subtotal
+</span>
+
+<strong>
+₹${subtotal}
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+Delivery
+</span>
+
+<strong>
+
+${delivery===0
+?"FREE"
+:"₹"+delivery}
+
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+Discount
+</span>
+
+<strong>
+- ₹${discount}
+</strong>
+
+</div>
+
+
+<div class="summary-row final-total">
+
+<span>
+Final Total
+</span>
+
+<span>
+₹${finalTotal}
+</span>
+
+</div>
+
+</div>
+
+`;
+
+
+box.innerHTML=html;
+
+}
 
 
 /* =========================
-   CHANGE QUANTITY
+   QUANTITY
 ========================= */
 
+function changeQuantity(index,value){
 
-function changeQuantity(
-    index,
-    value
-) {
+let quantity=parseInt(value);
 
+if(isNaN(quantity)||quantity<1){
 
-    let quantity =
-        parseInt(value);
-
-
-    if (
-        quantity < 1 ||
-        isNaN(quantity)
-    ) {
-
-        quantity = 1;
-
-    }
-
-
-    cart[index].quantity =
-        quantity;
-
-
-    displayCart();
+quantity=1;
 
 }
 
+cart[index].quantity=quantity;
+
+updateCart();
+
+}
 
 
 /* =========================
-   REMOVE FROM CART
+   REMOVE
 ========================= */
 
+function removeItem(index){
 
-function removeFromCart(index) {
+cart.splice(index,1);
 
-
-    cart.splice(
-        index,
-        1
-    );
-
-
-    displayCart();
+updateCart();
 
 }
-
 
 
 /* =========================
    PLACE ORDER
 ========================= */
 
+function placeOrder(event){
 
-function placeOrder(event) {
+event.preventDefault();
 
 
-    event.preventDefault();
+if(cart.length===0){
 
+alert(
+"Please add at least one product to your cart."
+);
 
-    /*
-       Make sure cart is not empty.
-    */
-
-    if (cart.length === 0) {
-
-
-        alert(
-            "Please add at least one product to your cart."
-        );
-
-
-        return;
-
-    }
-
-
-    const name =
-        document.getElementById(
-            "name"
-        ).value;
-
-
-    const email =
-        document.getElementById(
-            "email"
-        ).value;
-
-
-    const phone =
-        document.getElementById(
-            "phone"
-        ).value;
-
-
-    const address =
-        document.getElementById(
-            "address"
-        ).value;
-
-
-    let orderDetails =
-        "";
-
-
-    let grandTotal = 0;
-
-
-    cart.forEach(item => {
-
-
-        const itemTotal =
-            item.price *
-            item.quantity;
-
-
-        grandTotal +=
-            itemTotal;
-
-
-        orderDetails += `
-
-            <p>
-
-                <b>
-                    ${item.name}
-                </b>
-
-                <br>
-
-                Category:
-                ${item.category}
-
-                <br>
-
-                Size:
-                ${item.size}
-
-                <br>
-
-                Quantity:
-                ${item.quantity}
-
-                <br>
-
-                Price:
-                ₹${itemTotal}
-
-            </p>
-
-        `;
-
-    });
-
-
-    document.getElementById(
-        "orderDetails"
-    ).innerHTML = `
-
-        <p>
-
-            <b>
-                Customer:
-            </b>
-
-            ${name}
-
-        </p>
-
-
-        <p>
-
-            <b>
-                Email:
-            </b>
-
-            ${email}
-
-        </p>
-
-
-        <p>
-
-            <b>
-                Phone:
-            </b>
-
-            ${phone}
-
-        </p>
-
-
-        <hr>
-
-
-        ${orderDetails}
-
-
-        <h3>
-
-            Grand Total:
-            ₹${grandTotal}
-
-        </h3>
-
-
-        <p>
-
-            <b>
-                Delivery Address:
-            </b>
-
-            <br>
-
-            ${address}
-
-        </p>
-
-    `;
-
-
-    document.getElementById(
-        "successMessage"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "successMessage"
-    ).scrollIntoView({
-
-        behavior: "smooth"
-
-    });
-
-
-    /*
-       Empty cart after order.
-    */
-
-    cart = [];
-
-
-    displayCart();
+return;
 
 }
 
 
+const name=
+document.getElementById(
+"name"
+).value;
+
+
+const email=
+document.getElementById(
+"email"
+).value;
+
+
+const phone=
+document.getElementById(
+"phone"
+).value;
+
+
+const address=
+document.getElementById(
+"address"
+).value;
+
+
+const payment=
+document.getElementById(
+"payment"
+).value;
+
+
+const pincode=
+document.getElementById(
+"pincode"
+).value;
+
+
+let subtotal=0;
+
+
+let items="";
+
+
+cart.forEach(item=>{
+
+const total=
+item.price*
+item.quantity;
+
+
+subtotal+=total;
+
+
+items+=`
+
+<p>
+
+<b>
+${item.name}
+</b>
+
+<br>
+
+Size:
+${item.size}
+
+<br>
+
+Quantity:
+${item.quantity}
+
+<br>
+
+₹${total}
+
+</p>
+
+`;
+
+});
+
+
+const delivery=
+subtotal>=1999
+?0
+:99;
+
+
+const discount=
+subtotal>=2999
+?200
+:0;
+
+
+const finalTotal=
+subtotal+
+delivery-
+discount;
+
+
+/* DELIVERY DATE */
+
+const deliveryDate=
+new Date();
+
+deliveryDate.setDate(
+deliveryDate.getDate()+5
+);
+
+
+const dateString=
+deliveryDate.toLocaleDateString(
+"en-IN",
+{
+day:"numeric",
+month:"long",
+year:"numeric"
+}
+);
+
+
+/* ORDER NUMBER */
+
+const orderNumber=
+"NAYAB"+
+Math.floor(
+100000+
+Math.random()*900000
+);
+
+
+document.getElementById(
+"orderDetails"
+).innerHTML=`
+
+<p>
+<b>Order Number:</b>
+${orderNumber}
+</p>
+
+<hr>
+
+${items}
+
+<hr>
+
+<p>
+<b>Subtotal:</b>
+₹${subtotal}
+</p>
+
+<p>
+<b>Delivery:</b>
+${delivery===0
+?"FREE"
+:"₹"+delivery}
+</p>
+
+<p>
+<b>Discount:</b>
+₹${discount}
+</p>
+
+<h3>
+Final Amount:
+₹${finalTotal}
+</h3>
+
+<p>
+<b>Payment Method:</b>
+${payment}
+</p>
+
+<p>
+<b>Delivery Address:</b>
+<br>
+${address}
+<br>
+${pincode}
+</p>
+
+<p>
+<b>Expected Delivery:</b>
+${dateString}
+</p>
+
+<p>
+Thank you for shopping with
+<b>NAYAB</b> ❤️
+</p>
+
+`;
+
+
+document.getElementById(
+"success"
+).style.display="block";
+
+
+document.getElementById(
+"success"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+
+cart=[];
+
+updateCart();
+
+}
+
 
 /* =========================
-   SHOW ALL PRODUCTS
-   WHEN WEBSITE OPENS
+   INITIAL PRODUCTS
 ========================= */
 
-
 displayProducts(products);
-
 
 </script>
 
