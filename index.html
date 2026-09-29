@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nayab Clothing Store - Fashion for Every You</title>
+<meta name="description" content="Nayab Clothing Store - trendy western wear, sarees, kurtis and ethnic wear.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--wine:#8B1E3F;--wine2:#a72a50;--pink:#fff5f7;--soft:#f8dde5;--gold:#c9942e;--text:#333;--muted:#777;--white:#fff;--green:#217a4a}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--pink);color:var(--text);line-height:1.5}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.header{background:var(--wine);color:white;position:sticky;top:0;z-index:1000;box-shadow:0 3px 15px #0002}
+.header-inner{max-width:1200px;margin:auto;padding:14px 20px;display:flex;align-items:center;gap:25px;flex-wrap:wrap}
+.logo{font-size:27px;font-weight:800;letter-spacing:.5px}
+.tagline{font-size:12px;opacity:.85}
+.nav{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.nav a,.nav button{color:#fff;text-decoration:none;border:0;background:transparent;padding:8px 10px;border-radius:7px}
+.nav a:hover,.nav button:hover{background:#fff2}
+.cart-btn{background:#fff!important;color:var(--wine)!important;font-weight:700}
+.cart-count{display:inline-flex;min-width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;background:var(--wine);color:#fff;font-size:12px;margin-left:4px}
+.hero{background:linear-gradient(120deg,var(--soft),#fff);padding:70px 20px;text-align:center}
+.hero h1{font-size:clamp(34px,6vw,58px);color:var(--wine);margin-bottom:10px}
+.hero p{font-size:18px;color:#555;margin:8px auto;max-width:700px}
+.hero .hero-btn{display:inline-block;margin-top:20px;background:var(--wine);color:#fff;border:0;border-radius:30px;padding:13px 28px;font-weight:700}
+.section{max-width:1200px;margin:auto;padding:55px 20px}
+.section-title{text-align:center;color:var(--wine);font-size:30px;margin-bottom:10px}
+.section-sub{text-align:center;color:var(--muted);margin-bottom:28px}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.category-card{background:#fff;border-radius:18px;padding:28px 15px;text-align:center;box-shadow:0 5px 20px #8b1e3f14;transition:.2s;border:1px solid #f1d8df}
+.category-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px #8b1e3f22}
+.category-photo{width:100%;height:190px;object-fit:cover;border-radius:13px;margin-bottom:12px}
+.category-card h3{color:var(--wine);margin:7px 0}
+.category-card button{border:0;background:var(--wine);color:#fff;border-radius:20px;padding:9px 18px}
+.search-row{display:flex;gap:10px;max-width:850px;margin:0 auto 20px}
+.search-row input{flex:1;border:1px solid #ddd;background:#fff;border-radius:12px;padding:13px 15px;outline:none}
+.search-row input:focus{border-color:var(--wine)}
+.search-row button{border:0;background:var(--wine);color:#fff;border-radius:12px;padding:0 20px}
+.controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:25px}
+.controls select{border:1px solid #ddd;background:#fff;border-radius:10px;padding:10px 13px}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.product-card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 18px #8b1e3f12;position:relative;border:1px solid #f0e0e5}
+.product-img-wrap{position:relative}
+.product-img{width:100%;height:280px;object-fit:cover;display:block}
+.sale-badge{position:absolute;left:10px;top:10px;background:var(--wine);color:#fff;padding:5px 9px;border-radius:6px;font-size:12px;font-weight:700}
+.product-info{padding:15px}
+.product-info h3{font-size:17px;margin-bottom:5px}
+.category-label{font-size:12px;color:var(--muted)}
+.rating{color:#e4a62a;font-size:14px;margin:5px 0}
+.rating span{color:#777;font-size:12px;margin-left:4px}
+.price{font-size:19px;font-weight:800;color:var(--wine);margin:6px 0}
+.old-price{text-decoration:line-through;color:#999;font-size:13px;margin-left:5px}
+.product-info select{width:100%;padding:9px;border:1px solid #ddd;border-radius:8px;margin:8px 0}
+.add-btn{width:100%;padding:10px;border:0;border-radius:9px;background:var(--wine);color:#fff;font-weight:700}
+.add-btn:hover{background:var(--wine2)}
+.empty{text-align:center;padding:30px;color:#777;grid-column:1/-1}
+.cart-box,.checkout-box{background:#fff;border-radius:18px;padding:25px;box-shadow:0 5px 20px #8b1e3f12;margin-top:20px}
+.cart-table{width:100%;border-collapse:collapse}
+.cart-table th,.cart-table td{padding:12px 8px;border-bottom:1px solid #eee;text-align:left;vertical-align:middle}
+.cart-table th{color:var(--wine);font-size:13px}
+.qty-input{width:65px;padding:7px;border:1px solid #ddd;border-radius:7px}
+.remove-btn{border:0;background:#feecef;color:#b3214d;border-radius:7px;padding:7px 10px}
+.summary{max-width:430px;margin:20px 0 0 auto;border-top:1px solid #eee;padding-top:15px}
+.summary-row{display:flex;justify-content:space-between;padding:7px 0}
+.summary-row.total{font-size:21px;font-weight:800;color:var(--wine);border-top:2px solid #eee;margin-top:7px;padding-top:12px}
+.delivery-note{background:#f3faf6;color:var(--green);padding:10px 12px;border-radius:9px;margin-top:10px;font-size:13px}
+.checkout-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:25px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:13px;font-weight:700}
+.form-group input,.form-group textarea,.form-group select{padding:11px;border:1px solid #ddd;border-radius:9px;outline:none;background:#fff}
+.form-group textarea{min-height:90px;resize:vertical}
+.payment-options{display:grid;gap:10px;margin-top:8px}
+.payment-option{border:1px solid #ddd;border-radius:10px;padding:11px;display:flex;gap:10px;align-items:center}
+.payment-option:has(input:checked){border-color:var(--wine);background:#fff5f7}
+.place-order{width:100%;margin-top:18px;padding:13px;border:0;border-radius:10px;background:var(--wine);color:#fff;font-weight:800}
+.account-btn{background:#fff!important;color:var(--wine)!important;font-weight:700}
+.account-panel{display:none;position:fixed;inset:0;background:#0008;z-index:2000;align-items:center;justify-content:center;padding:15px}.account-panel.show{display:flex}.account-card{background:#fff;width:min(430px,100%);border-radius:18px;padding:25px;box-shadow:0 15px 50px #0004;position:relative}.account-card h2{color:var(--wine);margin-bottom:15px}.account-close{position:absolute;right:12px;top:8px;border:0;background:none;font-size:25px}.account-card input{width:100%;padding:11px;border:1px solid #ddd;border-radius:9px;margin:6px 0 12px}.account-submit{width:100%;padding:12px;border:0;border-radius:9px;background:var(--wine);color:#fff;font-weight:700}.account-switch{margin-top:12px;text-align:center;font-size:13px}.payment-details{display:none;margin-top:10px;padding:13px;background:#fff5f7;border-radius:10px}.payment-details.show{display:block}.payment-details input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:5px 0}.payment-inline{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.order-message{display:none;background:#f3faf6;border:1px solid #bfe3cc;color:#17633a;padding:18px;border-radius:12px;margin-top:18px}
+.about{background:#fff}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.feature{padding:20px;text-align:center;background:var(--pink);border-radius:14px}
+.feature strong{display:block;color:var(--wine);margin-bottom:5px}
+footer{background:#4b1024;color:#fff;text-align:center;padding:30px 20px}
+footer p{opacity:.85;font-size:13px;margin-top:6px}
+.back-top{position:fixed;right:15px;bottom:15px;background:var(--wine);color:#fff;border:0;border-radius:50%;width:42px;height:42px;display:none}
+@media(max-width:900px){.products-grid{grid-template-columns:repeat(3,1fr)}.categories{grid-template-columns:repeat(2,1fr)}.checkout-grid{grid-template-columns:1fr}.features{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){
+ .header-inner{justify-content:center;padding:11px 12px;gap:8px}.logo{font-size:23px}.tagline{display:none}.nav{margin-left:0;justify-content:center;width:100%;gap:2px}.nav a,.nav button{font-size:12px;padding:7px 6px}
+ .hero{padding:45px 15px}.hero p{font-size:15px}.section{padding:40px 12px}.section-title{font-size:25px}
+ .categories{grid-template-columns:1fr 1fr;gap:10px}.category-photo{height:145px}.category-card{padding:12px 8px}.category-card h3{font-size:14px}.category-card button{font-size:12px;padding:7px 11px}
+ .products-grid{grid-template-columns:repeat(2,1fr);gap:10px}.product-img{height:220px}.product-info{padding:10px}.product-info h3{font-size:14px}.price{font-size:16px}.add-btn{font-size:12px;padding:9px 5px}
+ .search-row{margin-bottom:12px}.search-row button{padding:0 13px}.controls{justify-content:stretch}.controls select{flex:1;min-width:140px}
+ .cart-box,.checkout-box{padding:14px}.cart-table{font-size:12px;display:block;overflow-x:auto;white-space:nowrap}.summary{max-width:none}.form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}.features{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <div class="logo">NAYAB Clothing Store</div>
+      <div class="tagline">Fashion • Elegance • Comfort</div>
+    </div>
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#products">Products</a>
+      <a href="#checkout">Checkout</a>
+      <button class="account-btn" onclick="openAccount()">👤 <span id="accountLabel">Sign In</span></button>
+      <button class="cart-btn" onclick="document.getElementById('cart').scrollIntoView({behavior:'smooth'})">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <h1>WELCOME TO NAYAB</h1>
+  <p>Discover fashion that feels uniquely you.</p>
+  <p>Trendy • Elegant • Comfortable</p>
+  <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">SHOP NOW</button>
+</section>
+
+<section class="section" id="categories">
+  <h2 class="section-title">SHOP BY CATEGORY</h2>
+  <p class="section-sub">Choose a collection and discover your next favourite look.</p>
+  <div class="categories">
+    <div class="category-card">
+      <img class="category-photo" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80" alt="Western fashion">
+      <h3>Western Wear</h3><p>Trendy everyday & party looks</p><button onclick="showCategory('Western Wear')">Shop Now</button>
+    </div>
+    <div class="category-card">
+      <img class="category-photo" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80" alt="Saree fashion">
+      <h3>Sarees</h3><p>Elegant traditional styles</p><button onclick="showCategory('Sarees')">Shop Now</button>
+    </div>
+    <div class="category-card">
+      <img class="category-photo" src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=80" alt="Kurti fashion">
+      <h3>Kurtis</h3><p>Comfortable & beautiful</p><button onclick="showCategory('Kurtis')">Shop Now</button>
+    </div>
+    <div class="category-card">
+      <img class="category-photo" src="https://images.unsplash.com/photo-1585488433841-5d4f3e4c7b47?auto=format&fit=crop&w=700&q=80" alt="Ethnic fashion">
+      <h3>Ethnic Wear</h3><p>Festive & special occasions</p><button onclick="showCategory('Ethnic Wear')">Shop Now</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <h2 class="section-title">OUR COLLECTION</h2>
+  <p class="section-sub" id="collectionText">20 styles selected for you</p>
+  <div class="search-row">
+    <input id="searchInput" type="search" placeholder="🔍 Search dresses, sarees, kurtis..." oninput="applyFilters()">
+    <button onclick="clearSearch()">Clear</button>
+  </div>
+  <div class="controls">
+    <select id="categoryFilter" onchange="applyFilters()">
+      <option value="All">All Categories</option>
+      <option value="Western Wear">Western Wear</option>
+      <option value="Sarees">Sarees</option>
+      <option value="Kurtis">Kurtis</option>
+      <option value="Ethnic Wear">Ethnic Wear</option>
+    </select>
+    <select id="sortFilter" onchange="applyFilters()">
+      <option value="default">Sort: Featured</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="rating">Top Rated</option>
+    </select>
+  </div>
+  <div class="products-grid" id="productGrid"></div>
+</section>
+
+<section class="section" id="cart">
+  <h2 class="section-title">YOUR SHOPPING CART</h2>
+  <p class="section-sub">Buy multiple products, change quantities and choose different sizes.</p>
+  <div class="cart-box" id="cartBox"></div>
+</section>
+
+<section class="section" id="checkout">
+  <h2 class="section-title">CHECKOUT</h2>
+  <p class="section-sub">Enter delivery details and choose your preferred payment method.</p>
+  <div class="checkout-box">
+    <form id="checkoutForm" onsubmit="placeOrder(event)">
+      <div class="checkout-grid">
+        <div>
+          <div class="form-grid">
+            <div class="form-group"><label>Full Name</label><input id="name" required placeholder="Your name"></div>
+            <div class="form-group"><label>Mobile Number</label><input id="phone" required type="tel" placeholder="10-digit mobile number"></div>
+            <div class="form-group full"><label>Email</label><input id="email" type="email" required placeholder="you@example.com"></div>
+            <div class="form-group full"><label>Delivery Address</label><textarea id="address" required placeholder="House no., street, city, state, PIN"></textarea></div>
+          </div>
+          <h3 style="margin-top:20px;color:var(--wine)">Payment Method</h3>
+          <div class="payment-options">
+            <label class="payment-option"><input type="radio" name="payment" value="Cash on Delivery" checked> 💵 Cash on Delivery</label>
+            <label class="payment-option"><input type="radio" name="payment" value="UPI"> 📱 UPI</label>
+            <label class="payment-option"><input type="radio" name="payment" value="Card"> 💳 Debit / Credit Card</label>
+          </div>
+          <div class="payment-details" id="upiDetails"><label><strong>UPI ID</strong></label><input id="upiId" placeholder="example@upi" inputmode="email"><small>UPI PIN/OTP kabhi bhi yahan enter na karein.</small></div>
+          <div class="payment-details" id="cardDetails"><label><strong>Card Number</strong></label><input id="cardNumber" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="off"><label><strong>Name on Card</strong></label><input id="cardName" autocomplete="off" placeholder="Name as on card"><div class="payment-inline"><div><label><strong>Expiry</strong></label><input id="cardExpiry" placeholder="MM/YY" maxlength="5" autocomplete="off"></div><div><label><strong>CVV</strong></label><input id="cardCvv" type="password" inputmode="numeric" maxlength="4" placeholder="CVV" autocomplete="off"></div></div><small>Demo checkout: real card data is not stored or processed by this GitHub Pages site.</small></div>
+          <button class="place-order" type="submit">PLACE ORDER</button>
+          <div class="order-message" id="orderMessage"></div>
+        </div>
+        <div>
+          <div class="cart-box" style="margin-top:0">
+            <h3 style="color:var(--wine);margin-bottom:12px">Order Summary</h3>
+            <div id="checkoutSummary"></div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <h2 class="section-title">WHY SHOP WITH NAYAB?</h2>
+  <p class="section-sub">A simple, modern shopping experience for every style.</p>
+  <div class="features">
+    <div class="feature"><strong>🚚 Fast Delivery</strong>Estimated delivery in 5–7 days.</div>
+    <div class="feature"><strong>⭐ Quality Styles</strong>Curated fashion for every occasion.</div>
+    <div class="feature"><strong>🔒 Secure Checkout</strong>Choose COD, UPI or card at checkout.</div>
+    <div class="feature"><strong>💗 Easy Shopping</strong>Search, compare, add and order with ease.</div>
+  </div>
+</section>
+
+<div class="account-panel" id="accountPanel" onclick="if(event.target===this)closeAccount()">
+  <div class="account-card">
+    <button class="account-close" onclick="closeAccount()">×</button>
+    <h2 id="accountTitle">Sign In</h2>
+    <form id="accountForm" onsubmit="handleAccount(event)">
+      <div id="signupNameWrap" style="display:none"><label>Full Name</label><input id="accountName" placeholder="Your name"></div>
+      <label>Email</label><input id="accountEmail" type="email" required placeholder="you@example.com">
+      <label>Password</label><input id="accountPassword" type="password" required minlength="6" placeholder="Minimum 6 characters">
+      <button class="account-submit" id="accountSubmit">Sign In</button>
+    </form>
+    <div class="account-switch"><span id="accountSwitchText">New to NAYAB?</span> <button type="button" style="border:0;background:none;color:var(--wine);font-weight:700" onclick="toggleAccountMode()" id="accountSwitchBtn">Create Account</button></div>
+    <div id="accountStatus" style="margin-top:10px;font-size:13px;color:var(--green)"></div>
+  </div>
+</div>
+
+<footer>
+  <strong>NAYAB Clothing Store</strong>
+  <p>Trendy • Elegant • Comfortable</p>
+  <p>© 2026 Nayab Clothing Store. All rights reserved.</p>
+</footer>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const products=[
+{id:1,name:"Elegant Floral Dress",category:"Western Wear",price:1499,rating:4.6,reviews:128,img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"},
+{id:2,name:"Casual Fashion Top",category:"Western Wear",price:699,rating:4.4,reviews:96,img:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80"},
+{id:3,name:"Party Wear Dress",category:"Western Wear",price:1799,rating:4.8,reviews:74,img:"https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=80"},
+{id:4,name:"Denim Jacket",category:"Western Wear",price:1299,rating:4.5,reviews:83,img:"https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=700&q=80"},
+{id:5,name:"Stylish Jumpsuit",category:"Western Wear",price:1599,rating:4.7,reviews:61,img:"https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=700&q=80"},
+{id:6,name:"Designer Saree",category:"Sarees",price:1999,rating:4.8,reviews:143,img:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"},
+{id:7,name:"Silk Saree",category:"Sarees",price:2499,rating:4.9,reviews:112,img:"https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=80"},
+{id:8,name:"Printed Saree",category:"Sarees",price:1299,rating:4.5,reviews:89,img:"https://images.unsplash.com/photo-1610189012906-4c9f1f9c9c90?auto=format&fit=crop&w=700&q=80"},
+{id:9,name:"Party Wear Saree",category:"Sarees",price:2299,rating:4.7,reviews:77,img:"https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=700&q=80"},
+{id:10,name:"Cotton Saree",category:"Sarees",price:999,rating:4.4,reviews:154,img:"https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=80"},
+{id:11,name:"Printed Cotton Kurti",category:"Kurtis",price:899,rating:4.6,reviews:121,img:"https://images.unsplash.com/photo-1583391733981-5a4f4c5e4d42?auto=format&fit=crop&w=700&q=80"},
+{id:12,name:"Anarkali Kurti",category:"Kurtis",price:1199,rating:4.8,reviews:97,img:"https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=700&q=80"},
+{id:13,name:"Straight Kurti",category:"Kurtis",price:799,rating:4.5,reviews:88,img:"https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=700&q=80"},
+{id:14,name:"Embroidered Kurti",category:"Kurtis",price:1399,rating:4.7,reviews:69,img:"https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=700&q=80"},
+{id:15,name:"Rayon Kurti",category:"Kurtis",price:999,rating:4.4,reviews:73,img:"https://images.unsplash.com/photo-1610030469668-8e9b2d6d6e31?auto=format&fit=crop&w=700&q=80"},
+{id:16,name:"Traditional Ethnic Suit",category:"Ethnic Wear",price:1299,rating:4.6,reviews:105,img:"https://images.unsplash.com/photo-1585488433841-5d4f3e4c7b47?auto=format&fit=crop&w=700&q=80"},
+{id:17,name:"Festive Salwar Suit",category:"Ethnic Wear",price:1799,rating:4.8,reviews:91,img:"https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80"},
+{id:18,name:"Embroidered Lehenga",category:"Ethnic Wear",price:2999,rating:4.9,reviews:58,img:"https://images.unsplash.com/photo-1610189022900-8c6d2a7c1f39?auto=format&fit=crop&w=700&q=80"},
+{id:19,name:"Anarkali Suit",category:"Ethnic Wear",price:1999,rating:4.7,reviews:82,img:"https://images.unsplash.com/photo-1597983073493-88cd35cf93b0?auto=format&fit=crop&w=700&q=80"},
+{id:20,name:"Designer Palazzo Suit",category:"Ethnic Wear",price:1599,rating:4.5,reviews:66,img:"https://images.unsplash.com/photo-1583391733981-5a4f4c5e4d42?auto=format&fit=crop&w=700&q=80"}
+];
+
+let cart=[];
+
+function stars(r){return "★".repeat(Math.floor(r))+"☆".repeat(5-Math.floor(r))}
+function money(n){return "₹"+n.toLocaleString("en-IN")}
+function displayProducts(list){
+ const grid=document.getElementById("productGrid");
+ if(!list.length){grid.innerHTML='<div class="empty">No products found. Try another search.</div>';return}
+ grid.innerHTML=list.map(p=>`
+ <div class="product-card">
+  <div class="product-img-wrap"><img class="product-img" src="${p.img}" alt="${p.name}" loading="lazy"><span class="sale-badge">SPECIAL</span></div>
+  <div class="product-info">
+   <h3>${p.name}</h3><div class="category-label">${p.category}</div>
+   <div class="rating">${stars(p.rating)} <span>${p.rating} (${p.reviews} reviews)</span></div>
+   <div class="price">${money(p.price)} <span class="old-price">${money(Math.round(p.price*1.15))}</span></div>
+   <select id="size-${p.id}" aria-label="Choose size for ${p.name}">
+    <option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+   </select>
+   <button class="add-btn" onclick="addToCart(${p.id})">ADD TO CART</button>
+  </div>
+ </div>`).join("");
+}
+function applyFilters(){
+ let q=document.getElementById("searchInput").value.toLowerCase().trim();
+ let cat=document.getElementById("categoryFilter").value;
+ let sort=document.getElementById("sortFilter").value;
+ let list=products.filter(p=>(cat==="All"||p.category===cat)&&(!q||p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
+ if(sort==="low")list.sort((a,b)=>a.price-b.price);
+ if(sort==="high")list.sort((a,b)=>b.price-a.price);
+ if(sort==="rating")list.sort((a,b)=>b.rating-a.rating);
+ displayProducts(list);
+ document.getElementById("collectionText").textContent=`Showing ${list.length} product${list.length!==1?"s":""}`;
+}
+function showCategory(cat){
+ document.getElementById("categoryFilter").value=cat;
+ document.getElementById("searchInput").value="";
+ applyFilters();
+ document.getElementById("products").scrollIntoView({behavior:"smooth"});
+}
+function clearSearch(){document.getElementById("searchInput").value="";document.getElementById("categoryFilter").value="All";applyFilters()}
+function addToCart(id){
+ const p=products.find(x=>x.id===id), size=document.getElementById("size-"+id).value;
+ const existing=cart.find(x=>x.id===id&&x.size===size);
+ if(existing)existing.quantity++;
+ else cart.push({...p,size,quantity:1});
+ updateCart();
+ document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+}
+function updateCart(){
+ const count=cart.reduce((s,x)=>s+x.quantity,0);
+ document.getElementById("cartCount").textContent=count;
+ const box=document.getElementById("cartBox");
+ if(!cart.length){
+  box.innerHTML='<div class="empty">Your cart is empty.<br>Add some beautiful styles to get started! 🛍️</div>';
+ }else{
+  let subtotal=cart.reduce((s,x)=>s+x.price*x.quantity,0);
+  let delivery=subtotal>=1999?0:99;
+  let total=subtotal+delivery;
+  box.innerHTML=`<div style="overflow-x:auto"><table class="cart-table"><thead><tr><th>Product</th><th>Size</th><th>Price</th><th>Qty</th><th>Total</th><th></th></tr></thead><tbody>
+  ${cart.map((x,i)=>`<tr><td><strong>${x.name}</strong><br><small>${x.category}</small></td><td>${x.size}</td><td>${money(x.price)}</td><td><input class="qty-input" type="number" min="1" value="${x.quantity}" onchange="changeQuantity(${i},this.value)"></td><td>${money(x.price*x.quantity)}</td><td><button class="remove-btn" onclick="removeFromCart(${i})">Remove</button></td></tr>`).join("")}</tbody></table></div>
+  <div class="summary"><div class="summary-row"><span>Subtotal</span><strong>${money(subtotal)}</strong></div><div class="summary-row"><span>Delivery</span><strong>${delivery===0?"FREE":money(delivery)}</strong></div><div class="summary-row total"><span>Grand Total</span><strong>${money(total)}</strong></div><div class="delivery-note">🚚 Estimated delivery: <strong>${deliveryDate()}</strong><br>Free delivery on orders of ₹1,999 or more.</div></div>`;
+ }
+ updateCheckoutSummary();
+}
+function changeQuantity(i,v){cart[i].quantity=Math.max(1,parseInt(v)||1);updateCart()}
+function removeFromCart(i){cart.splice(i,1);updateCart()}
+function deliveryDate(){
+ const d=new Date();d.setDate(d.getDate()+6);
+ return d.toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
+}
+function updateCheckoutSummary(){
+ const el=document.getElementById("checkoutSummary");
+ if(!cart.length){el.innerHTML='<p style="color:#777">Your cart is empty.</p>';return}
+ let subtotal=cart.reduce((s,x)=>s+x.price*x.quantity,0),delivery=subtotal>=1999?0:99,total=subtotal+delivery;
+ el.innerHTML=cart.map(x=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee"><span>${x.name} × ${x.quantity}<br><small>Size: ${x.size}</small></span><strong>${money(x.price*x.quantity)}</strong></div>`).join("")+
+ `<div class="summary-row"><span>Subtotal</span><strong>${money(subtotal)}</strong></div><div class="summary-row"><span>Delivery</span><strong>${delivery===0?"FREE":money(delivery)}</strong></div><div class="summary-row total"><span>Final Total</span><strong>${money(total)}</strong></div><div class="delivery-note">Expected delivery: <strong>${deliveryDate()}</strong></div>`;
+}
+let accountMode="signin";
+function openAccount(){const u=JSON.parse(localStorage.getItem("nayabUser")||"null");if(u){document.getElementById("accountStatus").innerHTML=`Signed in as <strong>${u.name}</strong><br><button type="button" onclick="logoutAccount()" style="margin-top:8px;border:0;background:#feecef;color:#b3214d;border-radius:7px;padding:7px 12px">Log Out</button>`}else{document.getElementById("accountStatus").textContent=""}document.getElementById("accountPanel").classList.add("show")}
+function logoutAccount(){localStorage.removeItem("nayabUser");document.getElementById("accountLabel").textContent="Sign In";closeAccount()}
+function closeAccount(){document.getElementById("accountPanel").classList.remove("show")}
+function toggleAccountMode(){
+ accountMode=accountMode==="signin"?"signup":"signin";
+ document.getElementById("accountTitle").textContent=accountMode==="signin"?"Sign In":"Create Account";
+ document.getElementById("accountSubmit").textContent=accountMode==="signin"?"Sign In":"Create Account";
+ document.getElementById("signupNameWrap").style.display=accountMode==="signup"?"block":"none";
+ document.getElementById("accountName").required=accountMode==="signup";
+ document.getElementById("accountSwitchText").textContent=accountMode==="signin"?"New to NAYAB?":"Already have an account?";
+ document.getElementById("accountSwitchBtn").textContent=accountMode==="signin"?"Create Account":"Sign In";
+}
+function handleAccount(e){
+ e.preventDefault();
+ const email=document.getElementById("accountEmail").value.trim();
+ const name=accountMode==="signup"?document.getElementById("accountName").value.trim():email.split("@")[0];
+ localStorage.setItem("nayabUser",JSON.stringify({name,email}));
+ document.getElementById("accountLabel").textContent=name.length>14?name.slice(0,14)+"…":name;
+ document.getElementById("accountStatus").textContent=accountMode==="signup"?"Account created on this device.":"Signed in on this device.";
+ setTimeout(closeAccount,700);
+}
+function checkAccount(){
+ const u=JSON.parse(localStorage.getItem("nayabUser")||"null");
+ if(u){document.getElementById("accountLabel").textContent=(u.name||"Account").slice(0,14)}
+}
+function updatePaymentFields(){
+ const p=document.querySelector('input[name="payment"]:checked').value;
+ document.getElementById("upiDetails").classList.toggle("show",p==="UPI");
+ document.getElementById("cardDetails").classList.toggle("show",p==="Card");
+ document.getElementById("upiId").required=p==="UPI";
+ document.getElementById("cardNumber").required=p==="Card";
+ document.getElementById("cardName").required=p==="Card";
+ document.getElementById("cardExpiry").required=p==="Card";
+ document.getElementById("cardCvv").required=p==="Card";
+}
+document.querySelectorAll('input[name="payment"]').forEach(r=>r.addEventListener("change",updatePaymentFields));
+function placeOrder(e){
+ e.preventDefault();
+ if(!localStorage.getItem("nayabUser")){alert("Please Sign In / Create Account before placing your order.");openAccount();return}
+ const selectedPayment=document.querySelector('input[name="payment"]:checked').value;
+ if(selectedPayment==="UPI" && !/^.+@.+$/.test(document.getElementById("upiId").value.trim())){alert("Please enter a valid UPI ID.");return}
+ if(selectedPayment==="Card"){const n=document.getElementById("cardNumber").value.replace(/\s/g,"");if(!/^\d{12,19}$/.test(n)||!document.getElementById("cardName").value.trim()||!/^(0[1-9]|1[0-2])\/\d{2}$/.test(document.getElementById("cardExpiry").value.trim())||!/^\d{3,4}$/.test(document.getElementById("cardCvv").value.trim())){alert("Please check your card details.");return}}
+ if(!cart.length){alert("Please add at least one product to your cart first.");document.getElementById("cart").scrollIntoView({behavior:"smooth"});return}
+ const name=document.getElementById("name").value;
+ const payment=document.querySelector('input[name="payment"]:checked').value;
+ const subtotal=cart.reduce((s,x)=>s+x.price*x.quantity,0),delivery=subtotal>=1999?0:99,total=subtotal+delivery;
+ const orderNo="NAY"+Date.now().toString().slice(-7);
+ document.getElementById("orderMessage").style.display="block";
+ document.getElementById("orderMessage").innerHTML=`<strong>🎉 Order placed successfully, ${name}!</strong><br>Order ID: <strong>${orderNo}</strong><br>Payment method: ${payment}<br>Items: ${cart.reduce((s,x)=>s+x.quantity,0)} | Final amount: <strong>${money(total)}</strong><br>Expected delivery: <strong>${deliveryDate()}</strong><br><small style="display:block;margin-top:8px">This demo confirms the order in your browser. To receive real orders and real online payments, a backend/payment gateway must be connected.</small>`;
+ cart=[];updateCart();document.getElementById("checkoutForm").reset();document.getElementById("orderMessage").scrollIntoView({behavior:"smooth"});
+}
+window.addEventListener("scroll",()=>{document.getElementById("backTop").style.display=window.scrollY>500?"block":"none"});
+displayProducts(products);updateCart();updatePaymentFields();checkAccount();
+</script>
+</body>
+</html>
